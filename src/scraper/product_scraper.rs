@@ -48,7 +48,7 @@ pub struct ProductTemplate {
 }
 
 #[derive(Deserialize, Debug)]
-struct Rating {
+pub struct Rating {
     #[serde(default)]
     pub rate: i32,
     #[serde(default)]
