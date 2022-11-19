@@ -1,0 +1,21 @@
+syntax = "proto3";
+package category_send;
+
+service CategorySender{
+	rpc SendCategory (CategoryList) returns (DBCategoryResponse);
+}
+
+message CategoryList{
+	repeated Category category_vec = 1;
+}
+
+message Category{
+	int32 id = 1;
+	string title_fa = 2;
+	string code = 3;
+	int32 parent_cat = 4;
+}
+
+message DBCategoryResponse {
+	bool status = 1;
+}

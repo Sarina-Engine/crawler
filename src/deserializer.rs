@@ -27,7 +27,7 @@ pub struct PTemplate {
 
 #[derive(Deserialize, Debug)]
 pub struct Pdata {
-    pub products: Vec<ProductTemplate>,
+    pub product: ProductTemplate,
 }
 
 #[derive(Deserialize, Debug)]
