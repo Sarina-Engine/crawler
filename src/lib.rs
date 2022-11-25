@@ -1,4 +1,3 @@
-pub mod deserializer;
 pub mod scraper;
 pub mod sender;
 pub mod services;

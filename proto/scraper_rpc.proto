@@ -28,7 +28,7 @@ message Comment{
 	int32 product_id = 2;
 	string title = 3;
 	string body = 4;
-	int32 rate = 5;
+	double rate = 5;
 }
 
 message ProductList{
@@ -38,9 +38,9 @@ message ProductList{
 message Product {
    int32 id  = 1;
    string title_fa = 2;
-   int32 rate = 3;
+   double rate = 3;
    int32 count = 4;
-   string cat_code = 5;
+   int32 cat_id = 5;
    bool done = 6;
 }
 

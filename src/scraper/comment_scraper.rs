@@ -21,15 +21,15 @@ mod scraper {
     async fn get_comments(p_id: i32) -> Result<CTemplate, Box<dyn std::error::Error>> {
         let url = format!("https://api.digikala.com/v1/product/{}/comments/", p_id);
         let client = reqwest::Client::new();
+        println!("{}", url);
         let body = client.get(url).send().await?.json::<CTemplate>().await?;
-
         Ok(body)
     }
 }
 
 #[derive(Deserialize, Debug)]
 pub struct CTemplate {
-    pub status: i32,
+    // pub status: i32,
     pub data: CData,
 }
 
@@ -40,10 +40,14 @@ pub struct CData {
 
 #[derive(Deserialize, Debug)]
 pub struct CommentTemplate {
+    #[serde(default)]
     pub id: i32,
-    pub title: String,
+    // #[serde(default)]
+    // pub title: String,
+    #[serde(default)]
     pub body: String,
-    pub rate: i32,
+    #[serde(default)]
+    pub rate: f64,
     #[serde(default)]
     pub product_id: i32,
 }

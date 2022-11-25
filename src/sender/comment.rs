@@ -24,7 +24,7 @@ impl From<CommentTemplate> for Comment {
         Comment {
             id: c.id,
             product_id: c.product_id,
-            title: c.title,
+            title: String::default(),
             body: c.body,
             rate: c.rate,
         }

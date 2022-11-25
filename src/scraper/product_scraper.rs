@@ -1,17 +1,18 @@
-pub use scraper::finialize_products;
+pub use scraper::finalize_products;
 use serde::Deserialize;
 
 pub mod scraper {
     use super::*;
 
-    pub async fn finialize_products(
-        cat_code: String,
+    pub async fn finalize_products(
+        cat_code: &str,
+        cat_id: i32,
     ) -> Result<Vec<ProductTemplate>, Box<dyn std::error::Error>> {
-        let products = get_products(&cat_code).await?.data.products;
+        let products = get_products(cat_code).await?.data.products;
         let products = products
             .into_iter()
             .map(|mut x| {
-                x.cat_code = String::from(&cat_code);
+                x.cat_id = cat_id;
                 x
             })
             .collect();
@@ -44,13 +45,13 @@ pub struct ProductTemplate {
     pub title_fa: String,
     pub rating: Rating,
     #[serde(default)]
-    pub cat_code: String,
+    pub cat_id: i32,
 }
 
 #[derive(Deserialize, Debug)]
 pub struct Rating {
     #[serde(default)]
-    pub rate: i32,
+    pub rate: f64,
     #[serde(default)]
     pub count: i32,
 }

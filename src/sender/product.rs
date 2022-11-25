@@ -25,7 +25,7 @@ impl From<ProductTemplate> for Product {
             title_fa: product.title_fa,
             rate: product.rating.rate,
             count: product.rating.count,
-            cat_code: product.cat_code,
+            cat_id: product.cat_id,
             done: false,
         }
     }
