@@ -5,7 +5,9 @@ pub mod product;
 use crate::scraper::{CatTemplate, CommentTemplate};
 use scraper_rpc::scraper_service_client::ScraperServiceClient;
 use scraper_rpc::DbResponse;
-use scraper_rpc::{Category, CategoryList, Comment, CommentList, Product, ProductList};
+use scraper_rpc::{
+    Category, CategoryList, Comment, CommentList, Feature, FeatureList, Product, ProductList,
+};
 use tonic::{Request, Response, Status};
 
 pub mod scraper_rpc {

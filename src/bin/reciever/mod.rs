@@ -1,7 +1,9 @@
 use digikala_scraper::sender::scraper_rpc::scraper_service_server::{
     ScraperService, ScraperServiceServer,
 };
-use digikala_scraper::sender::scraper_rpc::{CategoryList, CommentList, DbResponse, ProductList};
+use digikala_scraper::sender::scraper_rpc::{
+    CategoryList, CommentList, DbResponse, FeatureList, ProductList,
+};
 use digikala_scraper::services::{get_categories, get_comments, get_products};
 use tonic::transport::Server;
 use tonic::{Request, Response, Status};
@@ -27,6 +29,12 @@ impl ScraperService for ScraperRPCServer {
     async fn send_comment(
         &self,
         req: Request<CommentList>,
+    ) -> Result<Response<DbResponse>, Status> {
+        unimplemented!()
+    }
+    async fn send_feature(
+        &self,
+        req: Request<FeatureList>,
     ) -> Result<Response<DbResponse>, Status> {
         unimplemented!()
     }
